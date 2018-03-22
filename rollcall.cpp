@@ -6,11 +6,8 @@ using namespace std;
 int main() {
 	string first, last;
 	map<string, vector<string> > names, lastNames;
-	int TC;
 
-	while (cin >> first >> last) {
-		names[first].push_back(last);
-	}
+	while (cin >> first >> last) names[first].push_back(last);
 
 	for (auto& it: names) {
 		for (auto& itt : it.second) {
