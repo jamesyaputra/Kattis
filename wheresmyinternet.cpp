@@ -26,7 +26,6 @@ int main () {
 	visited.assign(a, 0);
 	dfs(0);
 	int flag = 0;
-	
 	for (int i = 0; i < a; i++) {
 		if (!visited[i]) {
 			flag = 1;
