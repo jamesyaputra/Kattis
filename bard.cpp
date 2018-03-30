@@ -20,22 +20,18 @@ int main () {
 		tonight.clear();
 		for (int i = 0; i < num; i++) {
 			cin >> x;
-			if (x == 1) {
-				bard_here = true;
-			} else tonight.push_back(x-1);
+			if (x == 1) bard_here = true;
+			else tonight.push_back(x-1);
 		}
 		
 		if (bard_here) {
 			song_id++;
 			for (int i = 0; i < num-1; i++) know_songs[tonight[i]].insert(song_id);
 		} else {
-			for (int i = 0; i < tonight.size(); i++) {
-				for (auto &it : know_songs[tonight[i]]) {
-					for (int j = 0; j < tonight.size(); j++) {
+			for (int i = 0; i < tonight.size(); i++)
+				for (auto &it : know_songs[tonight[i]])
+					for (int j = 0; j < tonight.size(); j++)
 						know_songs[tonight[j]].insert(it);
-					}
-				}
-			}
 		}
 
 	}
@@ -43,7 +39,6 @@ int main () {
 	cout << 1 << endl;
 	for (int i = 1; i < villagers; i++) {
 		if (know_songs[i].size() == song_id) cout << i+1 << endl;
-	}
 
 	return 0;
 }

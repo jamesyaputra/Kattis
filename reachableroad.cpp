@@ -41,7 +41,6 @@ int main () {
 		}
 
 		for (int i = 0; i < endpoints; i++) if (!visited[i]) dfs(i);
-
 		cout << endpoints-1-counts << endl;
 	}
 	return 0;
