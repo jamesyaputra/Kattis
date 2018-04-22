@@ -23,7 +23,7 @@ void dfs(int i, int j, int n, int m) {
 
 int main () {
 	int n, m;
-
+	
 	cin >> n >> m;
 	adj.assign(n+2, vector<char>(m+2, '0'));
 	visited.assign(n+2, vi(m+2, 0));
