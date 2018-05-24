@@ -12,28 +12,17 @@ int counts = 0;
 void runRobot(int v, int fault) {
 	if (!visited[v]) {
 		bool flag = 0;
-		//cout << "NOT VISITED " << v+1 << endl; 
 		visited[v] = 1;
 		for (auto &it : adj[v]) {
 			if (forced.find(ii(v, it)) != forced.end()) {
-				//cout << "going through forced moves" << endl;
 				flag = 1;
 				runRobot(it, fault);
 			}
 		}
 
-		if (!flag) {
-			counts++;
-			//cout << "STOP " << v+1 << endl;
-		}
-		if (!fault) {
-			//cout << "going through adj" << endl;
-			for (auto &it : adj[v]) runRobot(it, 1);
-		}
+		if (!flag) counts++;
+		if (!fault) for (auto &it : adj[v]) runRobot(it, 1);
 	}
-	/* else {
-		cout << "VISITED " << v+1 << endl;
-	}*/
 }
 
 int main () {
@@ -48,9 +37,7 @@ int main () {
 		if (a < 0) {
 			adj[-(a+1)].insert(b-1);
 			forced.insert(make_pair(-(a+1), b-1));
-		} else {
-			adj[a-1].insert(b-1);
-		}
+		} else adj[a-1].insert(b-1);
 	}
 
 	runRobot(0, 0);

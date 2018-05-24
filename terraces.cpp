@@ -17,7 +17,7 @@ void dfs(int i, int j, int n, int m, int height) {
     }
     if (visited[i][j]) return;
     
-    if (height == -1) height = terraces[i][j];
+    height = terraces[i][j];
     sizes++;
     visited[i][j] = 1;
     
